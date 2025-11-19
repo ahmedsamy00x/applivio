@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { useState } from "react";
+import Image from "next/image";
 
 export function Navbar() {
   const { scrollY } = useScroll();
@@ -23,10 +24,14 @@ export function Navbar() {
     >
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2">
-          <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-bold shadow-lg shadow-blue-500/20">
-            A
-          </div>
-          <span className="text-lg font-bold tracking-tight">Applivio</span>
+          <Image
+            src="/logo.png"
+            alt="Logo"
+            width={80}
+            height={80}
+            className="rounded-lg"
+          />
+          {/* <span className="text-lg font-bold tracking-tight">Applivio</span> */}
         </Link>
 
         {/* Glassy Dock Navigation */}
