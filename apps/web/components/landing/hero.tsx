@@ -10,7 +10,7 @@ export function Hero() {
     <section className="relative flex min-h-[90vh] w-full items-center overflow-hidden pt-20">
       {/* Background Gradient Blob */}
       <div className="absolute -top-[20%] -left-[10%] h-[500px] w-[500px] rounded-full bg-blue-500/20 blur-[100px] filter" />
-      <div className="absolute top-[20%] right-[10%] h-[400px] w-[400px] rounded-full bg-purple-500/10 blur-[100px] filter" />
+      <div className="absolute top-[20%] right-[10%] h-[400px] w-[400px] rounded-full bg-purple-500/20 blur-[100px] filter" />
 
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 items-center">
@@ -22,14 +22,14 @@ export function Hero() {
             className="flex flex-col justify-center space-y-8 text-left"
           >
             <div className="inline-flex w-fit items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm backdrop-blur-xl">
-              <span className="flex h-2 w-2 rounded-full bg-blue-500 mr-2 animate-pulse"></span>
+              <span className="flex h-2 w-2 rounded-full bg-purple-500 mr-2 animate-pulse"></span>
               <span className="text-white/80">
                 AI-Powered Job Tracking is Here
               </span>
             </div>
 
             <div className="space-y-4">
-              <h1 className="bg-gradient-to-br from-white via-white to-white/50 bg-clip-text text-4xl font-bold tracking-tighter text-transparent sm:text-5xl md:text-6xl lg:text-7xl">
+              <h1 className="bg-gradient-to-br from-white via-purple-100 to-purple-200/50 bg-clip-text text-4xl font-bold tracking-tighter text-transparent sm:text-5xl md:text-6xl lg:text-7xl">
                 Track your job search <br /> with just your voice
               </h1>
 
@@ -47,7 +47,7 @@ export function Hero() {
             >
               <Button
                 size="lg"
-                className="h-14 rounded-full px-8 text-base bg-blue-600 hover:bg-blue-700 shadow-lg shadow-blue-500/20"
+                className="h-14 rounded-full px-8 text-base bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg shadow-purple-500/20 border-0"
               >
                 Start for Free
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -55,9 +55,9 @@ export function Hero() {
               <Button
                 variant="outline"
                 size="lg"
-                className="h-14 rounded-full px-8 text-base"
+                className="h-14 rounded-full px-8 text-base bg-zinc-900/50 hover:bg-zinc-900 border-zinc-800 hover:border-purple-500/50 backdrop-blur-sm transition-colors"
               >
-                <Mic className="ml-2 h-5 w-5 mr-2 text-blue-400" />
+                <Mic className="ml-2 h-5 w-5 mr-2 text-purple-400" />
                 Try Voice Input Demo
               </Button>
             </motion.div>
@@ -86,7 +86,7 @@ export function Hero() {
               <Hero3DModel />
 
               {/* Decorative Elements behind 3D model */}
-              <div className="absolute inset-0 -z-10 bg-gradient-to-tr from-blue-500/10 via-transparent to-transparent rounded-full blur-3xl" />
+              <div className="absolute inset-0 -z-10 bg-gradient-to-tr from-purple-500/10 via-blue-500/5 to-transparent rounded-full blur-3xl" />
             </div>
           </motion.div>
         </div>

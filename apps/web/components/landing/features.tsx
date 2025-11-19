@@ -79,10 +79,10 @@ export function Features() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="bg-zinc-900/50 border-zinc-800 hover:bg-zinc-900 transition-colors h-full">
+              <Card className="bg-zinc-900/50 border-zinc-800 hover:bg-zinc-900/80 hover:border-purple-500/30 transition-all h-full group">
                 <CardHeader>
-                  <div className="p-3 w-fit rounded-xl bg-blue-500/10 mb-4">
-                    <feature.icon className="h-8 w-8 text-blue-500" />
+                  <div className="p-3 w-fit rounded-xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 group-hover:from-blue-500/20 group-hover:to-purple-500/20 transition-colors mb-4">
+                    <feature.icon className="h-8 w-8 text-blue-500 group-hover:text-purple-400 transition-colors" />
                   </div>
                   <CardTitle className="text-xl">{feature.title}</CardTitle>
                 </CardHeader>

@@ -75,10 +75,10 @@ export function Pricing() {
             >
               {plan.popular && (
                 <div className="absolute -top-4 left-0 right-0 flex justify-center z-10">
-                  <Badge className="bg-blue-600 hover:bg-blue-700">Most Popular</Badge>
+                  <Badge className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 border-0 text-white">Most Popular</Badge>
                 </div>
               )}
-              <Card className={`h-full flex flex-col ${plan.popular ? 'border-blue-500/50 bg-blue-950/10' : 'bg-zinc-900/50 border-zinc-800'}`}>
+              <Card className={`h-full flex flex-col ${plan.popular ? 'border-purple-500/50 bg-gradient-to-b from-blue-950/10 to-purple-950/10' : 'bg-zinc-900/50 border-zinc-800'}`}>
                 <CardHeader>
                   <CardTitle className="text-2xl">{plan.name}</CardTitle>
                   <CardDescription>{plan.description}</CardDescription>
@@ -91,14 +91,14 @@ export function Pricing() {
                   <ul className="space-y-3">
                     {plan.features.map((feature, i) => (
                       <li key={i} className="flex items-center">
-                        <Check className="h-4 w-4 text-green-500 mr-2" />
+                        <Check className={`h-4 w-4 mr-2 ${plan.popular ? 'text-purple-400' : 'text-green-500'}`} />
                         <span className="text-sm text-zinc-300">{feature}</span>
                       </li>
                     ))}
                   </ul>
                 </CardContent>
                 <CardFooter>
-                  <Button className={`w-full ${plan.popular ? 'bg-blue-600 hover:bg-blue-700' : ''}`} variant={plan.popular ? 'default' : 'outline'}>
+                  <Button className={`w-full ${plan.popular ? 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg shadow-purple-500/20 border-0' : ''}`} variant={plan.popular ? 'default' : 'outline'}>
                     {plan.buttonText}
                   </Button>
                 </CardFooter>
