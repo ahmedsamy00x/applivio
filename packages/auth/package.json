@@ -1,0 +1,23 @@
+{
+  "name": "@applivio/auth",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@applivio/db": "workspace:*",
+    "better-auth": "^1.0.0",
+    "dotenv": "^17.2.3"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^22.15.3",
+    "typescript": "^5.0.0"
+  }
+}
