@@ -1,8 +1,9 @@
 import { Hono } from "hono";
 import { prisma } from "@applivio/db";
 import { authMiddleware } from "../middleware/auth";
+import { HonoEnv } from "../types";
 
-export const jobsRouter = new Hono();
+export const jobsRouter = new Hono<HonoEnv>();
 
 // All routes require auth
 jobsRouter.use("*", authMiddleware);
@@ -11,7 +12,7 @@ jobsRouter.use("*", authMiddleware);
 jobsRouter.get("/", async (c) => {
   const user = c.get("user");
   const jobs = await prisma.job.findMany({
-    where: { userId: user.id },
+    where: { userId: user?.id },
     include: { events: true },
     orderBy: { createdAt: "desc" },
   });
@@ -21,15 +22,19 @@ jobsRouter.get("/", async (c) => {
 // Create job
 jobsRouter.post("/", async (c) => {
   const user = c.get("user");
+  if (!user) {
+    return c.json({ error: "Unauthorized" }, 401);
+  }
+
   const body = await c.req.json();
 
   const job = await prisma.job.create({
     data: {
-      userId: user.id,
       company: body.company,
       position: body.position,
       status: body.status || "APPLIED",
       notes: body.notes,
+      userId: user.id,
     },
   });
 
@@ -42,7 +47,7 @@ jobsRouter.get("/:id", async (c) => {
   const job = await prisma.job.findFirst({
     where: {
       id: c.req.param("id"),
-      userId: user.id,
+      userId: user?.id,
     },
     include: { events: true },
   });
@@ -59,7 +64,7 @@ jobsRouter.patch("/:id", async (c) => {
   const job = await prisma.job.updateMany({
     where: {
       id: c.req.param("id"),
-      userId: user.id,
+      userId: user?.id,
     },
     data: body,
   });
@@ -75,7 +80,7 @@ jobsRouter.delete("/:id", async (c) => {
   const job = await prisma.job.deleteMany({
     where: {
       id: c.req.param("id"),
-      userId: user.id,
+      userId: user?.id,
     },
   });
 

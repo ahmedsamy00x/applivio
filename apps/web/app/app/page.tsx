@@ -1,19 +1,23 @@
 import React from "react";
-import {auth} from "@applivio/auth"
+import { auth } from "@applivio/auth";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+import { VoiceRecorder } from "@/components/voice-recorder";
 
 const Page = async () => {
   const session = await auth.api.getSession({
-    headers: await headers()
-  })
+    headers: await headers(),
+  });
 
-  if(!session?.user?.email) {
-    return redirect("/login")
+  if (!session?.user?.email) {
+    return redirect("/login");
   }
 
-  console.log(session)
-  return <div>Applivio</div>;
+  return (
+    <div className="flex min-h-screen flex-col items-center justify-center p-4 bg-background">
+      <VoiceRecorder />
+    </div>
+  );
 };
 
 export default Page;
